@@ -2723,6 +2723,7 @@ input, select, textarea {
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
 		border-top: 0 !important;
+		overflow: auto;
 	}
 
 		.tiles + * {
@@ -2734,6 +2735,7 @@ input, select, textarea {
 			-webkit-align-items: center;
 			-ms-align-items: center;
 			align-items: center;
+			-webkit-overflow-scrolling: touch;
 			display: -moz-flex;
 			display: -webkit-flex;
 			display: -ms-flex;
@@ -2753,6 +2755,7 @@ input, select, textarea {
 			overflow: hidden;
 			position: relative;
 			width: 40%;
+			justify-content: center
 		}
 
 			.tiles article .image {
@@ -2812,6 +2815,8 @@ input, select, textarea {
 
 			.tiles article:hover:before {
 				opacity: 0.5;
+								
+
 			}
 
 			.tiles article.is-transitioning {
@@ -2831,7 +2836,9 @@ input, select, textarea {
 			}
 
 			.tiles article:nth-child(6n - 5):before {
+				
 				background-color: #6fc3df;
+				
 			}
 
 			.tiles article:nth-child(6n - 4):before {
@@ -2854,21 +2861,35 @@ input, select, textarea {
 				background-color: #87c5a4;
 			}
 
-		@media screen and (max-width: 1280px) {
+		@media screen and (max-width: 1480px) {
 
 			.tiles article {
 				padding: 4em 3em 2em 3em ;
 				height: 30vh;
 				max-height: 30em;
 				min-height: 20em;
+				
+				
+				overflow-y: auto;
+				align-items: start;
+			}
+			.tiles article:before {
+				opacity: 0.1;
 			}
 
 		}
+
 
 		@media screen and (max-width: 980px) {
 
 			.tiles article {
 				width: 50% !important;
+				
+				overflow-y: auto;
+				align-items: start;
+			}
+			.tiles article:before {
+				opacity: 0.1;
 			}
 
 		}
@@ -2880,10 +2901,17 @@ input, select, textarea {
 				height: 16em;
 				max-height: none;
 				min-height: 0;
+				
+				overflow-y: auto;
+				align-items: start;
 			}
 
 				.tiles article h3 {
 					font-size: 1.5em;
+					
+				}
+				.tiles article:before {
+					opacity: 0.1;
 				}
 
 		}
@@ -2897,6 +2925,11 @@ input, select, textarea {
 				.tiles article {
 					height: 20em;
 					width: 100% !important;
+					align-items: start;
+					overflow-y: auto;
+				}	
+				.tiles article:before {
+					opacity: 0.1;
 				}
 
 		}
@@ -3949,4 +3982,22 @@ input, select, textarea {
 			transform: none;
 			opacity: 1;
 			visibility: visible;
+		}
+
+		::-webkit-scrollbar {
+			width: 20px;
+		  }
+
+		  ::-webkit-scrollbar-thumb {
+			background-color: rgba(35, 35, 238, 0.1);
+			border-radius: 20px;
+			border: 6px solid transparent;
+			background-clip: content-box;
+		  }
+
+		  video {
+			
+  width: 100%    !important;
+  height: auto   !important;
+			object-fit: fill; 
 		}
